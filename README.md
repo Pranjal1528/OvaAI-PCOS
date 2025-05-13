@@ -10,13 +10,6 @@
 
 ---
 
-## 🔗 Live Demo
-
-🎯 Try the full working app here → [https://ovaai-pranjal1528.onrender.com](https://ovaai-pranjal1528.onrender.com)
-
----
-
-
 ## ⚙️ Tech Stack & Libraries Used
 
 ### 🌐 Frontend & Backend
