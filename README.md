@@ -1,57 +1,61 @@
-
-
-# 🌸 **OvaAI – PCOS Detection System**
+# 🌸 OvaAI – PCOS Detection Frontend
 
 **OvaAI** is a sophisticated and user-centric system designed to facilitate the early detection of **Polycystic Ovary Syndrome (PCOS)**, a condition that affects many women worldwide. By leveraging cutting-edge machine learning models for both **image-based** and **symptom-based** analyses, OvaAI empowers users to gain valuable insights into their health.
 
-The **frontend interface** offers a seamless experience, connecting users to the backend models that analyze:
 
-🩻 **Ultrasound Images** for automated PCOS detection.
- 📋 **Symptom-Based Risk Scoring** based on self-reported health data.
+- 🩻 **Ultrasound Images**
+- 📋 **Symptom-Based Risk Scoring**
 
- **Note:** The backend, including the trained ML models, is securely hosted to ensure data privacy and efficient performance.
+> ⚠️ **Note**: The backend & trained ML models are hosted privately for security and size constraints.
 
-## 🔗 **Live Demo**
+---
 
-Explore the full functionality of the system through this live demo:  
-🎯 [OvaAI – Live Demo](https://ovaai-pranjal1528.onrender.com)
+## 🔗 Live Demo
 
-## ⚙️ **Tech Stack & Libraries**
+🎯 Try the full working app here → [https://ovaai-pranjal1528.onrender.com](https://ovaai-pranjal1528.onrender.com)
 
-### 🌐 **Frontend & Backend**
- **HTML** & **CSS**: Custom, feminine-themed user interface, designed for optimal user experience.
- **Jinja2 Templates**: Dynamic content rendering, integrated with Flask.
- **Flask 3.1**: Lightweight Python web framework, offering a robust backend solution.
- **Render**: Hosting platform for live deployment.
+---
 
-### 🧠 **AI & ML (Backend)**
- **TensorFlow** & **Keras**: Convolutional Neural Network (CNN)-based PCOS classification.
- **OpenCV** & **MediaPipe**: Image processing for ultrasound scans and gesture-based interaction.
- **JAX**, **JAXlib**, **Optree**: Advanced numerical computation for faster performance.
- **NumPy**, **SciPy**, **Matplotlib**: Core scientific computing and data visualization.
 
-### 🔧 **Additional Libraries**
-`requests`, `httpx`, `pillow`, `markdown`, `rich`, `werkzeug`, `protobuf`, `sounddevice`, `slugify`, and others.
+## ⚙️ Tech Stack & Libraries Used
 
-All dependencies are detailed in the [`requirements.txt`](./requirements.txt).
+### 🌐 Frontend & Backend
+- **HTML**, **CSS** – Custom feminine-themed UI  
+- **Jinja2 Templates** – Flask-compatible dynamic rendering  
+- **Flask 3.1** – Lightweight Python web framework  
+- **Render** – For live app hosting  
 
-## 💡 **Key Features**
+### 🧠 AI & ML (Backend)
+- **TensorFlow**, **Keras** – PCOS classification using CNN  
+- **OpenCV**, **MediaPipe** – Image & gesture processing  
+- **JAX**, **JAXlib**, **Optree** – Numerical computation  
+- **NumPy**, **SciPy**, **Matplotlib** – ML pipeline tools  
 
- ✅ Symptom-based PCOS prediction through user input.
- ✅ Ultrasound image upload and CNN-powered analysis for automated diagnosis.
- ✅ Clean, modern, and responsive user interface with a calm, feminine theme.
- ✅ Secure API integration, ensuring data privacy and reliability.
+### 🔧 Other Libraries
+- `requests`, `httpx`, `pillow`, `markdown`, `rich`, `werkzeug`, `protobuf`, `sounddevice`, `slugify`, and more.
 
-## 🌍 **Future Enhancements**
+📦 All dependencies are listed in [`requirements.txt`](./requirements.txt)
 
- 📊 Implement an analytics dashboard to track PCOS risk factors and trends.
- 📱 Develop a mobile-friendly version for broader accessibility.
- 🗂️ Introduce a downloadable report feature for users.
- 🧠 Explore integration with LLM-based recommendations for personalized health guidance.
+---
 
-⭐ If you find this project useful, please consider starring the repository!  
- 🔄 Contributions are welcome. Feel free to submit pull requests or suggestions.
+## 💡 Features
 
-# OvaAI-PCOS
-Frontend interface of OvaAI – an ultrasound + symptom-based PCOS detection system
+✅ Symptom-based PCOS prediction  
+✅ Ultrasound upload & CNN-based image analysis  
+✅ Modern UI with calm & clean visuals  
+✅ Fully responsive frontend  
+✅ Secure backend API integration  
 
+---
+
+## 🌍 Future Enhancements
+
+- 📊 Add PCOS risk analytics dashboard  
+- 📱 Deploy mobile-friendly version  
+- 🗂️ Add report download feature  
+- 🧠 Integrate advanced LLM-based recommendations
+
+---
+
+> ⭐ Star the repo if you like it!  
+> 🔄 Contributions are welcome.
