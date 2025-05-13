@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PCOS Diagnosis - OvaAI</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <div class="logo-container">
+            <h1>OvaAI</h1>
+            <p class="tagline">AI-Powered PCOS Detection</p>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="{{ url_for('index') }}">Home</a></li>
+                <li><a href="{{ url_for('symptom') }}">Symptom Analysis</a></li>
+                <li><a href="#">About PCOS</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="container">
+        <section class="assessment">
+            <div class="progress-bar">
+                <div class="progress-step completed">
+                    <div class="step-number">✓</div>
+                    <p>Symptom Assessment</p>
+                </div>
+                <div class="progress-connector completed"></div>
+                <div class="progress-step completed">
+                    <div class="step-number">✓</div>
+                    <p>Ultrasound Analysis</p>
+                </div>
+                <div class="progress-connector completed"></div>
+                <div class="progress-step active">
+                    <div class="step-number">3</div>
+                    <p>Diagnosis</p>
+                </div>
+            </div>
+
+            <div class="assessment-content">
+                <h2>AI-Assisted PCOS Diagnosis</h2>
+                <p class="instruction">Below is the comprehensive analysis based on symptom data and ultrasound imaging. This information is intended to assist healthcare professionals in their clinical decision-making.</p>
+                
+                <div class="diagnosis-summary">
+                    <div class="diagnosis-header">
+                        <h3>{{ diagnosis.diagnosis }}</h3>
+                        <div class="confidence-score {{ 'high' if diagnosis.confidence >= 70 else 'moderate' if diagnosis.confidence >= 40 else 'low' }}">
+                            {{ diagnosis.confidence }}% confidence
+                        </div>
+                    </div>
+                    
+                    <div class="diagnosis-details">
+                        <div class="recommendations">
+                            <h4>Recommendations</h4>
+                            <ul>
+                                {% for recommendation in diagnosis.recommendations %}
+                                <li>{{ recommendation }}</li>
+                                {% endfor %}
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="analysis-sections">
+                    <div class="analysis-section">
+                        <h3>Symptom Analysis</h3>
+                        <div class="analysis-card">
+                            <div class="risk-score">
+                                <div class="score-circle {{ 'high' if diagnosis.symptom_analysis.risk_level == 'High' else 'moderate' if diagnosis.symptom_analysis.risk_level == 'Moderate' else 'low' }}">
+                                    {{ diagnosis.symptom_analysis.risk_score }}%
+                                </div>
+                                <p class="risk-level">{{ diagnosis.symptom_analysis.risk_level }} Risk</p>
+                            </div>
+                            <div class="analysis-details">
+                                <h4>Key Observations</h4>
+                                <ul>
+                                    {% for recommendation in diagnosis.symptom_analysis.recommendations %}
+                                    <li>{{ recommendation }}</li>
+                                    {% endfor %}
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="analysis-section">
+                        <h3>Ultrasound Image Analysis</h3>
+                        <div class="analysis-card ultrasound-analysis">
+                            <div class="image-container">
+                                {% if ultrasound_image %}
+                              
+
+                                {% else %}
+                                <div class="no-image">Image not available</div>
+                                {% endif %}
+                            </div>
+                            <div class="analysis-details">
+                                <h4>AI Detection: {{ diagnosis.ultrasound_analysis.prediction }}</h4>
+                                <h5>Features Detected:</h5>
+                                <ul>
+                                    {% for feature in diagnosis.ultrasound_analysis.features_detected %}
+                                    <li>{{ feature }}</li>
+                                    {% endfor %}
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="disclaimer-box">
+                    <h4>Important Notice</h4>
+                    <p>This AI-powered analysis is intended as a clinical decision support tool only. Final diagnosis should be made by qualified healthcare professionals taking into account all clinical data. OvaAI has been trained on ultrasound images and clinical data but may not capture all possible variations in PCOS presentation.</p>
+                </div>
+                
+                <div class="action-buttons">
+                    <button class="btn secondary" id="print-report">Print Report</button>
+                    <a href="{{ url_for('index') }}" class="btn primary">Start New Assessment</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h2>OvaAI</h2>
+                    <p>Revolutionizing PCOS Detection</p>
+                </div>
+                <div class="footer-links">
+                    <div class="link-group">
+                        <h3>Platform</h3>
+                        <ul>
+                            <li><a href="{{ url_for('symptom') }}">Start Assessment</a></li>
+                            <li><a href="#">For Healthcare Providers</a></li>
+                            <li><a href="#">Research</a></li>
+                        </ul>
+                    </div>
+                    <div class="link-group">
+                        <h3>Resources</h3>
+                        <ul>
+                            <li><a href="#">About PCOS</a></li>
+                            <li><a href="#">FAQ</a></li>
+                            <li><a href="#">Support</a></li>
+                        </ul>
+                    </div>
+                    <div class="link-group">
+                        <h3>Legal</h3>
+                        <ul>
+                            <li><a href="#">Privacy Policy</a></li>
+                            <li><a href="#">Terms of Service</a></li>
+                            <li><a href="#">Data Processing</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2025 OvaAI. All rights reserved. For medical professionals use only.</p>
+                <p class="disclaimer">OvaAI is a decision support tool and does not replace professional medical advice.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const printBtn = document.getElementById('print-report');
+            
+            printBtn.addEventListener('click', function() {
+                window.print();
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Symptom Assessment - OvaAI</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <div class="logo-container">
+            <h1>OvaAI</h1>
+            <p class="tagline">AI-Powered PCOS Detection</p>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="{{ url_for('index') }}">Home</a></li>
+                <li><a href="{{ url_for('symptom') }}" class="active">Symptom Analysis</a></li>
+                <li><a href="#">About PCOS</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="container">
+        <section class="assessment">
+            <div class="progress-bar">
+                <div class="progress-step active">
+                    <div class="step-number">1</div>
+                    <p>Symptom Assessment</p>
+                </div>
+                <div class="progress-connector"></div>
+                <div class="progress-step">
+                    <div class="step-number">2</div>
+                    <p>Ultrasound Analysis</p>
+                </div>
+                <div class="progress-connector"></div>
+                <div class="progress-step">
+                    <div class="step-number">3</div>
+                    <p>Diagnosis</p>
+                </div>
+            </div>
+
+            <div class="assessment-content">
+                <h2>Symptom Assessment</h2>
+                <p class="instruction">Please answer the following questions about your patient's symptoms to help our AI analyze potential PCOS indicators.</p>
+                
+                <form action="{{ url_for('symptom') }}" method="POST" class="symptom-form">
+                    <div class="symptom-question">
+                        <label>Does the patient experience irregular periods or missed periods?</label>
+                        <div class="radio-options">
+                            <div class="radio-option">
+                                <input type="radio" id="irregular_periods_yes" name="irregular_periods" value="yes" required>
+                                <label for="irregular_periods_yes">Yes</label>
+                            </div>
+                            <div class="radio-option">
+                                <input type="radio" id="irregular_periods_no" name="irregular_periods" value="no">
+                                <label for="irregular_periods_no">No</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="symptom-question">
+                        <label>Has the patient noticed excess hair growth on face, chest, back or buttocks?</label>
+                        <div class="radio-options">
+                            <div class="radio-option">
+                                <input type="radio" id="excess_hair_yes" name="excess_hair" value="yes" required>
+                                <label for="excess_hair_yes">Yes</label>
+                            </div>
+                            <div class="radio-option">
+                                <input type="radio" id="excess_hair_no" name="excess_hair" value="no">
+                                <label for="excess_hair_no">No</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="symptom-question">
+                        <label>Does the patient experience acne outbreaks, especially severe or persistent?</label>
+                        <div class="radio-options">
+                            <div class="radio-option">
+                                <input type="radio" id="acne_yes" name="acne" value="yes" required>
+                                <label for="acne_yes">Yes</label>
+                            </div>
+                            <div class="radio-option">
+                                <input type="radio" id="acne_no" name="acne" value="no">
+                                <label for="acne_no">No</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="symptom-question">
+                        <label>Has the patient experienced unexplained weight gain or difficulty losing weight?</label>
+                        <div class="radio-options">
+                            <div class="radio-option">
+                                <input type="radio" id="weight_gain_yes" name="weight_gain" value="yes" required>
+                                <label for="weight_gain_yes">Yes</label>
+                            </div>
+                            <div class="radio-option">
+                                <input type="radio" id="weight_gain_no" name="weight_gain" value="no">
+                                <label for="weight_gain_no">No</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="symptom-question">
+                        <label>Has the patient noticed thinning hair or hair loss from the scalp?</label>
+                        <div class="radio-options">
+                            <div class="radio-option">
+                                <input type="radio" id="hair_loss_yes" name="hair_loss" value="yes" required>
+                                <label for="hair_loss_yes">Yes</label>
+                            </div>
+                            <div class="radio-option">
+                                <input type="radio" id="hair_loss_no" name="hair_loss" value="no">
+                                <label for="hair_loss_no">No</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="symptom-question">
+                        <label>If applicable, has the patient had difficulty conceiving?</label>
+                        <div class="radio-options">
+                            <div class="radio-option">
+                                <input type="radio" id="difficulty_conceiving_yes" name="difficulty_conceiving" value="yes" required>
+                                <label for="difficulty_conceiving_yes">Yes</label>
+                            </div>
+                            <div class="radio-option">
+                                <input type="radio" id="difficulty_conceiving_no" name="difficulty_conceiving" value="no">
+                                <label for="difficulty_conceiving_no">No</label>
+                            </div>
+                            <div class="radio-option">
+                                <input type="radio" id="difficulty_conceiving_na" name="difficulty_conceiving" value="na">
+                                <label for="difficulty_conceiving_na">Not Applicable</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="symptom-question">
+                        <label>Does the patient experience pelvic pain?</label>
+                        <div class="radio-options">
+                            <div class="radio-option">
+                                <input type="radio" id="pelvic_pain_yes" name="pelvic_pain" value="yes" required>
+                                <label for="pelvic_pain_yes">Yes</label>
+                            </div>
+                            <div class="radio-option">
+                                <input type="radio" id="pelvic_pain_no" name="pelvic_pain" value="no">
+                                <label for="pelvic_pain_no">No</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="symptom-question">
+                        <label>Does the patient report unusual fatigue or low energy?</label>
+                        <div class="radio-options">
+                            <div class="radio-option">
+                                <input type="radio" id="fatigue_yes" name="fatigue" value="yes" required>
+                                <label for="fatigue_yes">Yes</label>
+                            </div>
+                            <div class="radio-option">
+                                <input type="radio" id="fatigue_no" name="fatigue" value="no">
+                                <label for="fatigue_no">No</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="symptom-question">
+                        <label>Has the patient reported mood changes, depression, or anxiety?</label>
+                        <div class="radio-options">
+                            <div class="radio-option">
+                                <input type="radio" id="mood_changes_yes" name="mood_changes" value="yes" required>
+                                <label for="mood_changes_yes">Yes</label>
+                            </div>
+                            <div class="radio-option">
+                                <input type="radio" id="mood_changes_no" name="mood_changes" value="no">
+                                <label for="mood_changes_no">No</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="symptom-question">
+                        <label>Has the patient noticed darkened skin patches, particularly in neck folds, groin, or underneath breasts?</label>
+                        <div class="radio-options">
+                            <div class="radio-option">
+                                <input type="radio" id="darkened_skin_yes" name="darkened_skin" value="yes" required>
+                                <label for="darkened_skin_yes">Yes</label>
+                            </div>
+                            <div class="radio-option">
+                                <input type="radio" id="darkened_skin_no" name="darkened_skin" value="no">
+                                <label for="darkened_skin_no">No</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-actions">
+                        <button type="submit" class="btn primary">Continue to Ultrasound Analysis</button>
+                    </div>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h2>OvaAI</h2>
+                    <p>Revolutionizing PCOS Detection</p>
+                </div>
+                <div class="footer-links">
+                    <div class="link-group">
+                        <h3>Platform</h3>
+                        <ul>
+                            <li><a href="{{ url_for('symptom') }}">Start Assessment</a></li>
+                            <li><a href="#">For Healthcare Providers</a></li>
+                            <li><a href="#">Research</a></li>
+                        </ul>
+                    </div>
+                    <div class="link-group">
+                        <h3>Resources</h3>
+                        <ul>
+                            <li><a href="#">About PCOS</a></li>
+                            <li><a href="#">FAQ</a></li>
+                            <li><a href="#">Support</a></li>
+                        </ul>
+                    </div>
+                    <div class="link-group">
+                        <h3>Legal</h3>
+                        <ul>
+                            <li><a href="#">Privacy Policy</a></li>
+                            <li><a href="#">Terms of Service</a></li>
+                            <li><a href="#">Data Processing</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2025 OvaAI. All rights reserved. For medical professionals use only.</p>
+                <p class="disclaimer">OvaAI is a decision support tool and does not replace professional medical advice.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

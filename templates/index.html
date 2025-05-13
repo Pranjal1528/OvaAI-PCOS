@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OvaAI - AI-Powered PCOS Detection</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+    <div class="logo-container" style="display: flex; align-items: center; gap: 12px;">
+        <!-- Inline SVG Logo -->
+        <svg viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg" width="60" height="60">
+            <ellipse cx="200" cy="200" rx="170" ry="120" fill="#f0f4f8" stroke="#8e44ad" stroke-width="8"/>
+            <circle cx="120" cy="150" r="20" fill="#8e44ad"/>
+            <circle cx="200" cy="120" r="20" fill="#8e44ad"/>
+            <circle cx="280" cy="150" r="20" fill="#8e44ad"/>
+            <circle cx="140" cy="220" r="20" fill="#8e44ad"/>
+            <circle cx="200" cy="250" r="20" fill="#8e44ad"/>
+            <circle cx="260" cy="220" r="20" fill="#8e44ad"/>
+            <line x1="120" y1="150" x2="200" y2="120" stroke="#8e44ad" stroke-width="4"/>
+            <line x1="200" y1="120" x2="280" y2="150" stroke="#8e44ad" stroke-width="4"/>
+            <line x1="120" y1="150" x2="140" y2="220" stroke="#8e44ad" stroke-width="4"/>
+            <line x1="120" y1="150" x2="200" y2="250" stroke="#8e44ad" stroke-width="4"/>
+            <line x1="120" y1="150" x2="260" y2="220" stroke="#8e44ad" stroke-width="4"/>
+            <line x1="200" y1="120" x2="140" y2="220" stroke="#8e44ad" stroke-width="4"/>
+            <line x1="200" y1="120" x2="200" y2="250" stroke="#8e44ad" stroke-width="4"/>
+            <line x1="200" y1="120" x2="260" y2="220" stroke="#8e44ad" stroke-width="4"/>
+            <line x1="280" y1="150" x2="140" y2="220" stroke="#8e44ad" stroke-width="4"/>
+            <line x1="280" y1="150" x2="200" y2="250" stroke="#8e44ad" stroke-width="4"/>
+            <line x1="280" y1="150" x2="260" y2="220" stroke="#8e44ad" stroke-width="4"/>
+        </svg>
+
+        <!-- Logo Text -->
+        <div class="logo-text">
+            <h1 style="margin: 0; font-size: 26px; font-weight: 600; color: #5a189a;">OvaAI</h1>
+            <p class="tagline" style="margin: 0; font-size: 13px; color: #6c757d;">AI-Powered PCOS Detection</p>
+        </div>
+    </div>
+
+    <nav>
+        <ul>
+            <li><a href="{{ url_for('index') }}" class="active">Home</a></li>
+            <li><a href="{{ url_for('symptom') }}">Symptom Analysis</a></li>
+            <li><a href="#">About PCOS</a></li>
+        </ul>
+    </nav>
+</header>
+
+    <main class="container">
+        <section class="hero">
+            <div class="hero-content">
+                <h2>Transforming PCOS Diagnosis with Artificial Intelligence</h2>
+                <p>OvaAI combines advanced machine learning with medical expertise to assist healthcare professionals in diagnosing Polycystic Ovary Syndrome more efficiently and accurately.</p>
+                <div class="cta-buttons">
+                    <a href="{{ url_for('symptom') }}" class="btn primary">Start Assessment</a>
+                    <a href="#features" class="btn secondary">Learn More</a>
+                </div>
+            </div>
+            <div class="hero-image">
+                
+            </div>
+        </section>
+
+        <!-- Add About PCOS Section -->
+        <section id="about-pcos" class="about-pcos">
+            <h2>About PCOS (Polycystic Ovary Syndrome)</h2>
+            <p>Polycystic Ovary Syndrome (PCOS) is a common hormonal disorder that affects women of reproductive age. It is characterized by an imbalance of reproductive hormones, leading to various symptoms such as irregular menstrual cycles, excessive hair growth, acne, and difficulty in conceiving.</p>
+            <p>PCOS can cause enlarged ovaries with small cysts on the outer edges. It is also associated with insulin resistance and an increased risk of other health problems such as type 2 diabetes, heart disease, and endometrial cancer.</p>
+            <h3>Common Symptoms of PCOS</h3>
+            <ul>
+                <li>Irregular or absent menstrual cycles</li>
+                <li>Excessive hair growth (hirsutism)</li>
+                <li>Acne or oily skin</li>
+                <li>Male-pattern baldness or thinning hair</li>
+                <li>Difficulty in conceiving (infertility)</li>
+            </ul>
+            <h3>Diagnosis and Treatment</h3>
+            <p>PCOS is typically diagnosed based on symptoms, blood tests to check hormone levels, and ultrasound imaging of the ovaries. While there is no cure for PCOS, treatments such as medication, lifestyle changes, and hormonal therapies can help manage symptoms and reduce the risk of long-term health problems.</p>
+            <p>With early detection and proper management, individuals with PCOS can lead a healthy and fulfilling life.</p>
+        </section>
+
+        <section class="features">
+            <h2>How OvaAI Works</h2>
+            <div class="feature-cards">
+                <div class="card">
+                    <div class="card-icon">
+                        
+                    </div>
+                    <h3>Symptom Analysis</h3>
+                    <p>Our AI analyzes patient-reported symptoms using advanced natural language processing to identify potential PCOS indicators.</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon">
+                        
+                    </div>
+                    <h3>Ultrasound Analysis</h3>
+                    <p>Convolutional neural networks examine ultrasound images to detect ovarian morphology consistent with PCOS diagnosis.</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon">
+                        
+                    </div>
+                    <h3>Comprehensive Diagnosis</h3>
+                    <p>Our system integrates multiple data points to provide a holistic assessment and personalized recommendations.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h2>OvaAI</h2>
+                    <p>Revolutionizing PCOS Detection</p>
+                </div>
+                <div class="footer-links">
+                    <div class="link-group">
+                        <h3>Platform</h3>
+                        <ul>
+                            <li><a href="{{ url_for('symptom') }}">Start Assessment</a></li>
+                            <li><a href="#">For Healthcare Providers</a></li>
+                            <li><a href="#">Research</a></li>
+                        </ul>
+                    </div>
+                    <div class="link-group">
+                        <h3>Resources</h3>
+                        <ul>
+                            <li><a href="#">About PCOS</a></li>
+                            <li><a href="#">FAQ</a></li>
+                            <li><a href="#">Support</a></li>
+                        </ul>
+                    </div>
+                    <div class="link-group">
+                        <h3>Legal</h3>
+                        <ul>
+                            <li><a href="#">Privacy Policy</a></li>
+                            <li><a href="#">Terms of Service</a></li>
+                            <li><a href="#">Data Processing</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2025 OvaAI. All rights reserved. For medical professionals use only.</p>
+                <p class="disclaimer">OvaAI is a decision support tool and does not replace professional medical advice.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

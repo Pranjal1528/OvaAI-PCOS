@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ultrasound Analysis - OvaAI</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <div class="logo-container">
+            <h1>OvaAI</h1>
+            <p class="tagline">AI-Powered PCOS Detection</p>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="{{ url_for('index') }}">Home</a></li>
+                <li><a href="{{ url_for('symptom') }}">Symptom Analysis</a></li>
+                <li><a href="#">About PCOS</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="container">
+        <section class="assessment">
+            <div class="progress-bar">
+                <div class="progress-step completed">
+                    <div class="step-number">✓</div>
+                    <p>Symptom Assessment</p>
+                </div>
+                <div class="progress-connector completed"></div>
+                <div class="progress-step active">
+                    <div class="step-number">2</div>
+                    <p>Ultrasound Analysis</p>
+                </div>
+                <div class="progress-connector"></div>
+                <div class="progress-step">
+                    <div class="step-number">3</div>
+                    <p>Diagnosis</p>
+                </div>
+            </div>
+
+            <div class="assessment-content">
+                <h2>Ultrasound Image Analysis</h2>
+                <p class="instruction">Please upload the patient's ovarian ultrasound image for AI analysis. The image should be a clear view of one or both ovaries.</p>
+
+                <div class="symptom-results">
+                    <h3>Symptom Analysis Results</h3>
+                    <div class="result-card">
+                        <div class="risk-score">
+                            <div class="risk-label">Risk Level</div>
+                            <div class="risk-value">{{ session['symptom_analysis']['risk_level'] }}</div>
+                        </div>
+                        <div class="risk-score">
+                            <div class="risk-label">Risk Score</div>
+                            <div class="risk-value">{{ session['symptom_analysis']['risk_score'] }}%</div>
+                        </div>
+                    </div>
+                </div>
+
+                <form action="{{ url_for('ultrasound') }}" method="post" enctype="multipart/form-data">
+                    <label for="ultrasound_image" class="upload-btn">Choose Ultrasound Image</label>
+                    <input type="file" name="ultrasound_image" id="ultrasound_image" required>
+                    <button type="submit">Upload & Analyze</button>
+                </form>
+            </div>
+        </section>
+    </main>
+</body>
+</html>
